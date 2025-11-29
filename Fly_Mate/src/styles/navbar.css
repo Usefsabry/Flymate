@@ -1,5 +1,6 @@
 /* ====== Navbar Base ====== */
 nav {
+  
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -11,6 +12,8 @@ nav {
   z-index: 1000;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   transition: background 0.3s ease, color 0.3s ease;
+  position: sticky;
+  top: 0;
 }
 
 /* Logo */
@@ -25,14 +28,83 @@ nav {
 
 /* Links */
 .nav-links { display:flex; gap:2.3rem; align-items:center; }
-.nav-links a {
+.nav-links a,.nav-btn  {
   color: var(--text);
   text-decoration: none;
   font-size: 1.08rem;
   font-weight: 500;
   position: relative;
   transition: color .25s ease;
+  cursor: pointer;
 }
+
+.mytrip-link {
+  position: relative;
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+
+.mytrip-link-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width .28s ease;
+}
+
+.mytrip-link-wrapper:hover {
+  color: var(--accent);
+}
+
+.mytrip-link-wrapper:hover::after {
+  width: 100%;
+}
+
+/*                           num                                */
+
+.mytrip-link-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.trip-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: #ff3b3b;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+/*                           num                                */
+.nav-btn {
+  background-color: transparent;
+  border: none;
+    color: var(--text);
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  position: relative;
+  transition: color .25s ease;
+  cursor: pointer;
+}
+.nav-btn::after {
+    content:"";
+  position:absolute; left:0; bottom:-5px;
+  width:0; height:2px; background:var(--accent); transition: width .28s ease;
+}
+.nav-btn:hover {
+  color: var(--accent);
+}
+.nav-btn:hover::after { width:100%; }
 /* underline animation */
 .nav-links a::after {
   content:"";
@@ -53,7 +125,7 @@ nav {
   cursor: pointer;
   transition: transform .18s ease, background .18s ease;
 }
-.book-btn:hover { transform: scale(1.05); background: var(--accent-hover); }
+.book-btn:hover { transform: scale(1.05); background: var(--accent-hover) !important; }
 
 /* Right */
 .nav-right { display:flex; align-items:center; gap:18px; }
@@ -127,4 +199,25 @@ nav {
   .book-btn { width: calc(100% - 40px); margin: 0 20px; }
   /* Keep dropdown as overlay but ensure it sits above whole menu */
   .user-menu { right: 16px; top: calc(100% + 8px); z-index: 2400; }
+}
+
+
+
+@media (max-width:900px){
+
+
+ 
+  /* .mytrip-link-wrapper {
+    width: 100%;
+    display: block;
+
+
+  } */
+  .nav-links a,
+  .nav-btn,.mytrip-link-wrapper {
+    padding: 14px 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--dropdown-border);
+  }
 }

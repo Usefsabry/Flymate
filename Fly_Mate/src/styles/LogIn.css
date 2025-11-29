@@ -1,0 +1,259 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 20px 20px;
+  padding-top: 80px;
+  transition: background 0.22s ease, color 0.22s ease;
+}
+
+.login-header {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 13px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.login-title {
+  font-weight: bold;
+  font-size: 44px;
+  margin-bottom: 29px;
+  color: var(--text);
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 570px;
+  gap: 19px;
+  margin-bottom: 28px;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+}
+
+.login-input {
+  padding: 18px 54px 18px 18px;
+  font-size: 21px;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent);
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.22s ease, background 0.22s ease;
+}
+
+.login-input::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  color: var(--text);
+  opacity: 0.6;
+  font-size: 22px;
+  pointer-events: none;
+}
+
+.login-button {
+  padding: 18px;
+  background-color: var(--accent);
+  color: var(--btn-color);
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  margin-top: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.22s ease;
+}
+
+.login-button:hover {
+  background-color: var(--accent-hover);
+}
+
+/*****/
+.theme-toggle-login {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-login:hover {
+  transform: scale(1.1);
+}
+
+.or-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 28px 0 23px 0;
+  width: 100%;
+  max-width: 570px;
+}
+
+.line {
+  flex: 1;
+  height: 1.5px;
+  background: var(--text);
+  opacity: 0.2;
+  border: none;
+  margin: 0 8px;
+}
+
+.or-text {
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.login-register {
+  text-align: center;
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.create-account {
+  color: var(--accent);
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.22s ease;
+}
+
+.create-account:hover {
+  color: var(--accent-hover);
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .login-container {
+    margin-top: 40px;
+  }
+
+  .login-header {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .login-title {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+
+  .login-input {
+    font-size: 18px;
+    padding: 16px 50px 16px 16px;
+  }
+
+  .input-icon {
+    font-size: 20px;
+    right: 20px;
+  }
+
+  .login-button {
+    font-size: 20px;
+    padding: 16px;
+  }
+
+  .or-text {
+    font-size: 17px;
+  }
+
+  .login-register {
+    font-size: 18px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .login-container {
+    margin-top: 30px;
+    padding: 0 16px;
+  }
+
+  .login-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+
+  .login-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .login-form {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .login-input {
+    font-size: 16px;
+    padding: 14px 46px 14px 14px;
+  }
+
+  .input-icon {
+    font-size: 18px;
+    right: 16px;
+  }
+
+  .login-button {
+    font-size: 18px;
+    padding: 14px;
+    margin-top: 10px;
+  }
+
+  .or-separator {
+    margin: 24px 0 20px 0;
+  }
+
+  .or-text {
+    font-size: 16px;
+  }
+
+  .login-register {
+    font-size: 16px;
+    margin-top: 6px;
+  }
+}
+
+/* Add slide-up animation */
+.login-container {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

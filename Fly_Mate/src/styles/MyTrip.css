@@ -1,0 +1,657 @@
+/* src/styles/MyTrip.css */
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.mytrip-empty-state {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: var(--btn-color);
+  margin-bottom: 30px;
+  box-shadow: 0 15px 40px rgba(0, 123, 255, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.empty-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 15px 0;
+}
+
+.empty-subtitle {
+  font-size: 18px;
+  color: #64748b;
+  margin: 0 0 35px 0;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.back-to-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 35px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: var(--btn-color);
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.35);
+}
+
+.back-to-search-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.5);
+}
+
+/* ============================================
+   MY TRIP CONTAINER
+   ============================================ */
+.mytrip-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+  min-height: 80vh;
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.mytrip-header {
+  background: var(--menu-bg);
+  border-radius: 20px;
+  padding: 30px 35px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--dropdown-border);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--btn-color);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 5px 0;
+}
+
+.page-subtitle {
+  font-size: 15px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 600;
+}
+
+.back-btn-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn-header:hover {
+  background: var(--accent);
+  color: var(--btn-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+/* ============================================
+   TRIPS WRAPPER
+   ============================================ */
+.trips-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ============================================
+   TRIP CARD (Similar to Flight Search Suggestions)
+   ============================================ */
+.trip-card {
+  background: var(--menu-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--dropdown-border);
+  transition: all 0.4s ease;
+  display: grid;
+  grid-template-columns: 300px 1fr auto;
+  gap: 0;
+}
+
+.trip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+  border-color: var(--accent);
+}
+
+/* Removing Animation */
+.trip-card.removing {
+  animation: slideOut 0.4s ease forwards;
+}
+
+@keyframes slideOut {
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+/* ============================================
+   TRIP IMAGE SECTION
+   ============================================ */
+.trip-image-section {
+  position: relative;
+  height: 100%;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.trip-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.trip-card:hover .trip-image {
+  transform: scale(1.08);
+}
+
+.trip-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.airline-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   TRIP DETAILS SECTION
+   ============================================ */
+.trip-details {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  flex: 1;
+}
+
+/* Route Display */
+.trip-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--dropdown-border);
+}
+
+.route-city {
+  text-align: center;
+  flex: 1;
+}
+
+.city-code {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.city-name {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.route-arrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0.6;
+  position: relative;
+}
+
+.arrow-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), var(--accent-hover));
+  position: relative;
+}
+
+.arrow-line::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--accent-hover);
+  border-right: 2px solid var(--accent-hover);
+  transform: rotate(45deg);
+}
+
+.plane-icon-route {
+  color: var(--accent);
+  font-size: 22px;
+  animation: fly-horizontal 3s ease-in-out infinite;
+}
+
+@keyframes fly-horizontal {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(12px); }
+}
+
+/* Info Grid */
+.trip-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  background: var(--hover);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: var(--bg);
+  transform: translateY(-2px);
+}
+
+.info-icon {
+  color: var(--accent);
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 15px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.class-badge {
+  background: rgba(0, 123, 255, 0.1);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 13px;
+}
+
+/* ============================================
+   TRIP ACTIONS SECTION
+   ============================================ */
+.trip-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 25px;
+  background: var(--hover);
+  gap: 20px;
+  min-width: 200px;
+}
+
+.price-section-trip {
+  text-align: center;
+}
+
+.price-label {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.price-amount-trip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.dollar-icon-trip {
+  font-size: 24px;
+}
+
+.price-value-trip {
+  font-size: 38px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.view-details-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  color: var(--btn-color);
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.35);
+}
+
+.view-details-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
+}
+
+.remove-trip-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.remove-trip-btn:hover {
+  background: #ef4444;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+}
+
+.remove-trip-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .trip-card {
+    grid-template-columns: 250px 1fr auto;
+  }
+
+  .trip-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mytrip-header {
+    padding: 25px 30px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 900px) {
+  .trip-card {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-image-section {
+    height: 220px;
+    min-height: auto;
+  }
+
+  .trip-actions {
+    flex-direction: row;
+    padding: 25px;
+  }
+
+  .action-buttons {
+    flex-direction: row;
+    width: auto;
+    flex: 1;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .back-btn-header {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile Medium */
+@media (max-width: 700px) {
+  .mytrip-container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .mytrip-header {
+    padding: 20px;
+  }
+
+  .header-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .trip-route {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .route-arrow {
+    transform: rotate(90deg);
+    width: 60px;
+  }
+
+  .trip-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-actions {
+    flex-direction: column;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .empty-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .empty-title {
+    font-size: 28px;
+  }
+
+  .empty-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 500px) {
+  .trip-details {
+    padding: 20px;
+  }
+
+  .city-code {
+    font-size: 24px;
+  }
+
+  .price-amount-trip {
+    font-size: 32px;
+  }
+
+  .price-value-trip {
+    font-size: 34px;
+  }
+
+  .trips-wrapper {
+    gap: 20px;
+  }
+
+  .back-to-search-btn {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   DARK MODE ENHANCEMENTS
+   ============================================ */
+html[data-theme="dark"] .trip-card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .trip-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .mytrip-header {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .info-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="dark"] .airline-badge {
+  background: rgba(255, 255, 255, 0.15);
+}

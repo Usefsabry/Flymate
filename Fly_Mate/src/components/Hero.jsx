@@ -42,7 +42,12 @@ function Hero (){
         >
           <div className="overlay">
             <h1>{img.text}</h1>
-            <button className="book-btn-hero">Book Now</button>
+            <button
+             className="book-btn-hero" 
+            onClick={() =>
+            document.getElementById("booking_id")?.scrollIntoView({ behavior: "smooth" })
+          }
+            >Book Now</button>
           </div>
         </div>
       ))}

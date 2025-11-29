@@ -1,28 +1,4 @@
-:root {
-  /* light defaults */
-  --bg: #ffffff;
-  --text: #111827;
-  --nav-bg: #f8f9fb;
-  --menu-bg: #ffffff;
-  --accent: #007bff;
-  --accent-hover: #006ae6;
-  --btn-color: #ffffff;
-  --hover: rgba(0,0,0,0.04);
-  --dropdown-border: rgba(0,0,0,0.08);
-}
 
-/* dark overrides */
-html[data-theme="dark"] {
-  --bg: #0f1720;
-  --text: #e6eef6;
-  --nav-bg: #0b1220;
-  --menu-bg: #0b1220;
-  --accent: #2fb4ff;
-  --accent-hover: #1fa6ff;
-  --btn-color: #071428;
-  --hover: rgba(255,255,255,0.03);
-  --dropdown-border: rgba(255,255,255,0.06);
-}
 
 /* global */
 *{box-sizing:border-box}
@@ -34,3 +10,37 @@ body{
   transition: background .22s ease, color .22s ease;
 }
 a{ color:inherit; text-decoration:none; }
+
+
+:root {
+  /* light defaults */
+  --bg: #f0f4f8;          
+  --text: #1e3a8a;         
+  --nav-bg: #e0e7ff;       
+  --menu-bg: #ffffff;      
+  --accent: #3b82f6;       
+  --accent-hover: #2563eb;
+  --btn-color: #ffffff;   
+  --hover: rgba(59,130,246,0.1); 
+  --dropdown-border: rgba(59,130,246,0.2);
+}
+
+
+
+
+
+
+
+
+/* dark overrides */
+html[data-theme="dark"] {
+  --bg: #0f172a;           /* أزرق كحلي داكن للخلفية */
+  --text: #c7d2fe;         /* أزرق فاتح للنص */
+  --nav-bg: #1e293b;       /* أزرق غامق للناف بار */
+  --menu-bg: #1e293b;      /* نفس لون المينيو */
+  --accent: #3b82f6;       /* أزرق فخم للأزرار والروابط */
+  --accent-hover: #1e40af; /* أزرق داكن للهوفر */
+  --btn-color: #0f172a;    /* خلفية الأزرار */
+  --hover: rgba(255,255,255,0.05); 
+  --dropdown-border: rgba(255,255,255,0.08);
+}
