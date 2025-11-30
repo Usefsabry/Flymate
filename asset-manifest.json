@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/DEPI-Project/static/css/main.528f9c4e.css",
+    "main.js": "/DEPI-Project/static/js/main.6fe760b9.js",
+    "static/media/p1.jpg": "/DEPI-Project/static/media/p1.18135f2c2ed328ea7eb5.jpg",
+    "index.html": "/DEPI-Project/index.html",
+    "main.528f9c4e.css.map": "/DEPI-Project/static/css/main.528f9c4e.css.map",
+    "main.6fe760b9.js.map": "/DEPI-Project/static/js/main.6fe760b9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.528f9c4e.css",
+    "static/js/main.6fe760b9.js"
+  ]
+}
