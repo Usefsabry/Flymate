@@ -1,0 +1,223 @@
+/* ====== Navbar Base ====== */
+nav {
+  
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  background-color: var(--nav-bg);
+  color: var(--text);
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, color 0.3s ease;
+  position: sticky;
+  top: 0;
+}
+
+/* Logo */
+.logo a {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+}
+.logo span { color: var(--accent); }
+
+/* Links */
+.nav-links { display:flex; gap:2.3rem; align-items:center; }
+.nav-links a,.nav-btn  {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  position: relative;
+  transition: color .25s ease;
+  cursor: pointer;
+}
+
+.mytrip-link {
+  position: relative;
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+
+.mytrip-link-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width .28s ease;
+}
+
+.mytrip-link-wrapper:hover {
+  color: var(--accent);
+}
+
+.mytrip-link-wrapper:hover::after {
+  width: 100%;
+}
+
+/*                           num                                */
+
+.mytrip-link-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.trip-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: #ff3b3b;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+/*                           num                                */
+.nav-btn {
+  background-color: transparent;
+  border: none;
+    color: var(--text);
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  position: relative;
+  transition: color .25s ease;
+  cursor: pointer;
+}
+.nav-btn::after {
+    content:"";
+  position:absolute; left:0; bottom:-5px;
+  width:0; height:2px; background:var(--accent); transition: width .28s ease;
+}
+.nav-btn:hover {
+  color: var(--accent);
+}
+.nav-btn:hover::after { width:100%; }
+/* underline animation */
+.nav-links a::after {
+  content:"";
+  position:absolute; left:0; bottom:-5px;
+  width:0; height:2px; background:var(--accent); transition: width .28s ease;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width:100%; }
+
+/* Book Now (theme-aware) */
+.book-btn {
+  background: var(--accent);
+  color: var(--btn-color);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease;
+}
+.book-btn:hover { transform: scale(1.05); background: var(--accent-hover) !important; }
+
+/* Right */
+.nav-right { display:flex; align-items:center; gap:18px; }
+.icons-right { display:flex; gap:14px; align-items:center; }
+
+/* User dropdown (overlay, fixed relative to icon) */
+.user-icon { position: relative; cursor:pointer; display:inline-flex; align-items:center; }
+.user-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: var(--menu-bg);
+  color: var(--text);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.12);
+  overflow: hidden;
+  border: 1px solid var(--dropdown-border);
+  z-index: 2200; /* high so it's above mobile menu */
+  transform-origin: top right;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px) scale(.98);
+  transition: opacity .18s ease, transform .18s ease;
+}
+.user-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+.user-menu a {
+  display:block;
+  padding: 11px 14px;
+  text-decoration:none;
+  color: var(--text);
+  font-size: 1rem;
+  border-bottom: 1px solid var(--dropdown-border);
+  transition: background .12s ease, padding-left .12s ease;
+}
+.user-menu a:last-child { border-bottom: none; }
+.user-menu a:hover { background: var(--hover); padding-left: 18px; color: var(--accent); }
+
+/* theme button style */
+.theme-btn { background:none; border:0; cursor:pointer; color:var(--text); font-size:1.1rem; }
+
+/* burger toggle hidden on desktop */
+.menu-toggle { display:none; background:none; border:0; font-size:1.5rem; cursor:pointer; color:var(--text); }
+
+/* Mobile */
+@media (max-width:900px){
+  nav { justify-content: space-between; padding:14px 18px; }
+  .menu-toggle { display:inline-block; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-bg, #f9f9fb);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 10px 0;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+    z-index: 900;
+  }
+  .book-btn{display: none;}
+
+  .nav-links.open { transform: translateY(0); }
+  .nav-links a { width:100%; text-align:center; padding:14px 20px; border-bottom:1px solid var(--dropdown-border); }
+  .book-btn { width: calc(100% - 40px); margin: 0 20px; }
+  /* Keep dropdown as overlay but ensure it sits above whole menu */
+  .user-menu { right: 16px; top: calc(100% + 8px); z-index: 2400; }
+}
+
+
+
+@media (max-width:900px){
+
+
+ 
+  /* .mytrip-link-wrapper {
+    width: 100%;
+    display: block;
+
+
+  } */
+  .nav-links a,
+  .nav-btn,.mytrip-link-wrapper {
+    padding: 14px 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--dropdown-border);
+  }
+}
